@@ -1,0 +1,26 @@
+    	----IO ---
+ 1. IO in java takes place as Stream(sequence of Bytes)
+ 2. Stream is kind of abstraction, hididng the lower level processing/signalling.
+ 3. An I/O Stream represents an input source or an output destination.
+ 4. Streams support many different kinds of data, including simple bytes, primitive data types, localized characters, and objects.     Some streams simply pass on data; others manipulate and transform the data in useful ways.
+ eg. Stream can be understood as  a PIPE.. water PIPE or LPG PIPES can not be the same. Zipped or Cypher Input Stream
+
+ 5. Two types of Streams: byte stream(since jdk1.0) and Character Stream (since java2)
+ 6. a.) Byte stream is suitable for working with primitives or raw data(.jpg, mp4 etc.)
+        -Class belonging to Byte Stream will be having 'Stream' as Suffix
+	-Buffer is not used by default , though can be added.
+	-I/O Stream Classes are at the top of hierarchy in Byte Stream
+
+	b.)Character Stream suitable for Strings/Texts
+      - suffix of the family would be 'reader/Writer'
+      - By default, there is buffer used in Character Stream
+      - For need for internationalisation/ translation-- use of character stream is recommended
+      - Reader/ Writer Stream Classes are at the top of hierarchy in Character Stream
+      - More efficient as it transfer the whole buffer at one time.
+      - internally uses Byte Stream , Character Stream acts as Wrapper over it.
+ 6. Interconnect  different Streams.. zip and send file--> connect Zip Stream with File Stream--
+ brings Flexibility/ Options as per requirements.
+
+(BUFFER is temporary area of storage, easy to transfer the data --- default  size of buffer 8KB[jdk7] )
+
+[Disk, Boot sector, tracks, seeking time(OS),access time, (Binary-> 0/1  reperesents voltage level)]
