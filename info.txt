@@ -12,15 +12,28 @@
 	-I/O Stream Classes are at the top of hierarchy in Byte Stream
 
 	b.)Character Stream suitable for Strings/Texts
+	  -Content is not written to the file without close(), as buffer is not cleared.
       - suffix of the family would be 'reader/Writer'
       - By default, there is buffer used in Character Stream
       - For need for internationalisation/ translation-- use of character stream is recommended
       - Reader/ Writer Stream Classes are at the top of hierarchy in Character Stream
-      - More efficient as it transfer the whole buffer at one time.
+      - More efficient as it transfers the whole buffer at one time.
       - internally uses Byte Stream , Character Stream acts as Wrapper over it.
  6. Interconnect  different Streams.. zip and send file--> connect Zip Stream with File Stream--
  brings Flexibility/ Options as per requirements.
 
 (BUFFER is temporary area of storage, easy to transfer the data --- default  size of buffer 8KB[jdk7] )
 
-[Disk, Boot sector, tracks, seeking time(OS),access time, (Binary-> 0/1  reperesents voltage level)]
+[Disk, Boot sector, tracks, seeking time(OS),access time, (Binary-> 0/1  represents voltage level)]
+
+7. stream.close() , not mandatory with byteStream class i.e. content is written despite not closing the stream.
+
+8. Once the buffer is emptied, the new content is added to the emptied buffer and the content is
+   not written in the file till buffer is overflowed.
+
+ 9. After flush()...can write to file again
+ 10. close(), closes the stream , can not use the resource again.
+
+ 11. we can only read text file with stream, or the file with ASCII format.
+ For pdf, jpg etc, require
+ ==== copy a file, PrintWriter, serialisation, stdin/out stream
