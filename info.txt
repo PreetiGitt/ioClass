@@ -34,6 +34,18 @@
  9. After flush()...can write to file again
  10. close(), closes the stream , can not use the resource again.
 
- 11. we can only read text file with stream, or the file with ASCII format.
- For pdf, jpg etc, require
+ 11. we can  read  only text file with stream, or the file with ASCII format.
+ --For pdf, jpg etc.(these are binary files), require
  ==== copy a file, PrintWriter, serialisation, stdin/out stream
+// 1,2 , 4,8 bytes: (byte, boolean), (short, char), int, (double,float)
+
+#### SEQUENTIAL ACCESS ### VS. RANDOMACESSFILE
+ 12. DataInputStream/output: does not read/write character by character(unlike fileWriter) , has customized
+  methods like readInt().
+  usecase: to write primitive, to read in sequence
+  : is byte oriented .
+
+
+
+  To be Discussed: PrintWriter
+  setOut, setIn(), setErr(), serialization
