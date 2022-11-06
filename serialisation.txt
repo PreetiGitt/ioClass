@@ -1,0 +1,7 @@
+Serialisation: is  way of writing/ saving state of an object to a byte stream
+usecase: 1. distributed envt.(Remote Method Invocation),
+         transferring the object in distributed envt.
+      2. Save/store the state of an object,then to reconstruct the object from saved state.
+      3.
+
+Deserialization:
