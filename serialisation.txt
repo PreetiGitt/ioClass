@@ -1,7 +1,31 @@
 Serialisation: is  way of writing/ saving state of an object to a byte stream
-usecase: 1. distributed envt.(Remote Method Invocation),
+usecase: 1. distributed envt.(Remote Method Invocation), ORM,
          transferring the object in distributed envt.
       2. Save/store the state of an object,then to reconstruct the object from saved state.
-      3.
+      3.OBJECT GRAPH: connected objects, whole of the graph can be converted to byte stream:
+        eg: customer obj, order obj etc.
+        In absence of serialisation, each obj and its properties need to be handled individually.
+Class: Need to implement the 'Serializable' I/F (is a MARKER I/F i.e. empty)  [Marker i/f is to notify
+ the classes] .: ELSE: notSerializableException.
+---Class String also implements Serializable
+Deserialization: constructing object from byte stream.
 
-Deserialization:
+-- 'Static attributes/ class variables' are not serialised.-> get default value at time of
+    deserialization
+--'transient' is a keyWord, as modifier to prevent serialisation.
+-- constructor is not called at the time of Deserialization.
+
+Scenario: 1. multiple objects of same type: do it using array
+       2. objects of different type: need to deserialize in same order
+
+ If super class implements Serializable, Sub classes need NOT implement Serializable i/f
+
+InvalidClassException: in case of change in serialVersionUID, if there is change in local
+                   class after streaming/serialization
+ Customized serialVersionUID: allows the deserialization after modification of the class
+ , without throwing InvalidClassException-> default value of new modified attributes.
+
+ Externalizable->> only attributes written in 'writeExternal(ObjectOutput out)' get
+    serialized, gives more flexibility over transient.
+->attributes written in 'readExternal()'- can only be read
+  -> serialVersionUID is added to class at runtime by JVM
